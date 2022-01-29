@@ -29,10 +29,26 @@ function App() {
       case 'AC':
         //resetClickHandler();
         break;
-      
+      case '(' || ')' :
+        //parentClickHandler();
+        break;
+      case '%' :
+        //percentClickHandler();
+      break;
+      case '/' || '*' || '+' || '/' :
+        //operaterClickHandler();
+      break;
+
+      case '=' :
+        //totalClickHandler();
+      break;
+      case ',':
+        //commaClickHandler();
+      break;
         default:
-    console.log(`Sorry, we are out of `);
+         //numClickHandler();
     }
+
      
     
   }
