@@ -1,6 +1,6 @@
 import React ,{useState} from 'react';
 import './App.css';
-import MainBox from './components/MainBox';
+import MainBox from './components/MainBox/';
 import  Display  from "./components/Display"
 import ButtonBox  from "./components/ButtonBox"
 import Button from './components/Button';
@@ -67,6 +67,7 @@ const App = () => {
 
   const equalsClickHandler = () => {
     if (calc.sign && calc.num) {
+      
       const math = (a, b, sign) =>
         sign === "+"
           ? a + b
@@ -76,7 +77,8 @@ const App = () => {
           ? a * b
           :sign === '^'
           ? a**b
-          : a / b;
+          : a / b
+          
 
       setCalc({
         ...calc,
@@ -120,7 +122,9 @@ const App = () => {
   };
 
   return (
+    <div><h1>Calculator</h1>
     <MainBox>
+    
       <Display value={calc.num ? calc.num : calc.res} />
       <ButtonBox>
         {btnArr.flat().map((btn, i) => {
@@ -149,6 +153,7 @@ const App = () => {
         })}
       </ButtonBox>
     </MainBox>
+    </div>
   );
 };
 
