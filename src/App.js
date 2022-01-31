@@ -5,7 +5,7 @@ import  Display  from "./components/Display"
 import ButtonBox  from "./components/ButtonBox"
 import Button from './components/Button';
 const btnArr = [
-  ["Ac", "^", "%", "/"],
+  ["AC", "^", "%", "/"],
   [7, 8, 9, "X"],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
@@ -74,6 +74,8 @@ const App = () => {
           ? a - b
           : sign === "X"
           ? a * b
+          :sign === '^'
+          ? a**b
           : a / b;
 
       setCalc({
@@ -94,14 +96,7 @@ const App = () => {
     }
   };
 
-  const invertClickHandler = () => {
-    setCalc({
-      ...calc,
-      num: calc.num ? toLocaleString(removeSpaces(calc.num) * -1) : 0,
-      res: calc.res ? toLocaleString(removeSpaces(calc.res) * -1) : 0,
-      sign: "",
-    });
-  };
+  
 
   const percentClickHandler = () => {
     let num = calc.num ? parseFloat(removeSpaces(calc.num)) : 0;
@@ -137,8 +132,8 @@ const App = () => {
               onClick={
                 btn === "AC"
                   ? resetClickHandler
-                  : btn === "+-"
-                  ? invertClickHandler
+                  : btn === "^"
+                  ? signClickHandler
                   : btn === "%"
                   ? percentClickHandler
                   : btn === "="
