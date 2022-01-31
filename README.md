@@ -1,6 +1,6 @@
-# Caluclater App
+# Calculator App
 
-## Discription: 
+## Description: 
 Simple Caluclater App using React framework.
 
 ## Usage :
